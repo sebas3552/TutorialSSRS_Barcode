@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Tutorial", "Tutorial\Tutorial.rptproj", "{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Debug|Default.ActiveCfg = Debug
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Debug|Default.Build.0 = Debug
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Debug|Default.Deploy.0 = Debug
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.DebugLocal|Default.Build.0 = DebugLocal
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Release|Default.ActiveCfg = Release
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Release|Default.Build.0 = Release
+		{44EA59D0-EDEC-4D0B-93EF-6F6AAB08D41C}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CE3234F-6FD1-4506-A93C-F8EC44435445}
+	EndGlobalSection
+EndGlobal

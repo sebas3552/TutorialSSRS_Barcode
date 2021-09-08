@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="AdventureWorks2016">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=localhost;Initial Catalog=AdventureWorks2016</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>19607bf1-87db-4607-8e7a-1ccd2a901f24</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="AdventureWorksDataset">
+      <Query>
+        <DataSourceName>AdventureWorks2016</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>uspDataSetQuery</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Order">
+          <DataField>Order</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Subcat">
+          <DataField>Subcat</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Product">
+          <DataField>Product</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UPC">
+          <DataField>UPC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LineTotal">
+          <DataField>LineTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EAN">
+          <DataField>EAN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UPCA">
+          <DataField>UPCA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3.42604cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.66958cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.90771cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.77198cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>UPC Code</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Barcode</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>EAN-13</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>UPC-A</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>2.35948cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Date">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!UPC.Value</Value>
+                                  <Style>
+                                    <Format>d 'de' MMMM 'de' yyyy</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Date</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Image Name="Code">
+                          <Source>Database</Source>
+                          <Value>=Code.EAN13Bytes(Fields!UPC.Value, 1)</Value>
+                          <MIMEType>image/png</MIMEType>
+                          <Sizing>FitProportional</Sizing>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Image>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ean13(Fields!EAN.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Libre Barcode EAN13 Text</FontFamily>
+                                    <FontSize>72pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>White</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!UPCA.Value</Value>
+                                  <Style>
+                                    <FontFamily>UPC-A</FontFamily>
+                                    <FontSize>48pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Detalles" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>AdventureWorksDataset</DataSetName>
+            <Top>0.55245cm</Top>
+            <Left>0.63183cm</Left>
+            <Height>3.13146cm</Height>
+            <Width>15.50333cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>11.19593in</Width>
+      <Page>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Code>Public Shared Function EAN13Bytes(ByVal stringText as String, ByVal fontVer as Integer) As Byte()
+	Return GenerateImage("BCW_UPCEAN_" &amp; fontVer, BCW_EAN13(stringText))
+End Function
+
+Public Shared Function EAN8Bytes(ByVal stringText as String, ByVal fontVer as Integer) As Byte()
+	Return GenerateImage("BCW_UPCEAN_" &amp; fontVer, BCW_EAN8(stringText))
+End Function
+
+Public Shared Function UPCABytes(ByVal stringText as String, ByVal fontVer as Integer) As Byte()
+	Return GenerateImage("BCW_UPCEAN_" &amp; fontVer, BCW_UPCA(stringText))
+End Function
+
+Public Shared Function UPCEBytes(ByVal stringText as String, ByVal fontVer as Integer) As Byte()
+	Return GenerateImage("BCW_UPCEAN_" &amp; fontVer, BCW_UPCE(stringText))
+End Function
+
+
+Public Shared Function GenerateImage(ByVal fontName As String,  ByVal stringText As String) As Byte()
+        Dim oGraphics As System.Drawing.Graphics
+        Dim barcodeSize As System.Drawing.SizeF
+        Dim ms As System.IO.MemoryStream
+ 
+        Dim fontSize as Integer = 220
+
+        Using font As New System.Drawing.Font(New System.Drawing.FontFamily(fontName), fontSize)
+            Using tmpBitmap As New System.Drawing.Bitmap(1, 1, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(tmpBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+                barcodeSize = oGraphics.MeasureString(stringText, font)
+                oGraphics.Dispose()
+            End Using
+ 
+            Using newBitmap As New System.Drawing.Bitmap(barcodeSize.Width, barcodeSize.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(newBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+ 
+                Using oSolidBrushWhite As New System.Drawing.SolidBrush(System.Drawing.Color.White)
+                    Using oSolidBrushBlack As New System.Drawing.SolidBrush(System.Drawing.Color.Black)
+                        oGraphics.FillRectangle(oSolidBrushWhite, New System.Drawing.Rectangle(0, 0, barcodeSize.Width, barcodeSize.Height))
+                        oGraphics.DrawString(stringText, font, oSolidBrushBlack, 0, 0)
+                    End Using
+ 
+                End Using
+ 
+                ms = New System.IO.MemoryStream()
+                newBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+            End Using
+        End Using
+ 
+        Return ms.ToArray()
+    End Function
+
+
+    Public Enum BarcodeType
+        SYMB_UPCA = 1
+        SYMB_UPCE = 2
+        SYMB_EAN13 = 3
+        SYMB_EAN8 = 4
+    End Enum
+
+
+    Const charsetA As String = "ABCDEFGHIJ"
+    Const charsetALong As String = "abcdefghij" 'long bar, no text
+    Const charsetC As String = "0123456789"
+    Const charsetCLong As String = "!""#$%&amp;'()*" 'long bar, no text
+    Const charsetB As String = "QRSTUVWXYZ" 'There is no long version
+    Const digitsOnly As String = "qrstuvwxyz"
+    Const bar As String = "|" 'bar-space-bar
+    Const SPACE As String = "{"
+    Const THREE_SPACES As String = "{{{"
+    Const FIVE_SPACES As String = "{{{{{"
+    Const SEVEN_SPACES As String = "}"
+    Const TRIPLE_BAR As String = "~" 'UPC-E Only
+
+    '+2 and +5 Supplementals
+    Const charsetASupp As String = "+,./:;=?@K"
+    Const charsetBSupp As String = "LMNOP[\]^_"
+    Const LEFT_GUARD As String = "m"
+    Const SEPARATOR As String = "n"
+
+
+    'UPC-A uses character set A on the left side and C on the right
+    Public Shared Function BCW_UPCA(ByVal bc As String, Optional ByVal bTrimSpaces As Boolean = True) As String
+
+        On Error GoTo err
+        If bTrimSpaces Then bc = Trim(bc)
+
+        Dim s As String = ""
+        Dim suppl As String = ""
+
+        Select Case Len(bc)
+            Case 11, 12
+                'add check digit if 11 digits
+                'Correct the check digit if necessary
+                s = Mid(bc, 1, 11) &amp; CheckDigit(BarcodeType.SYMB_UPCA, Mid(bc, 1, 11))
+                suppl = ""
+            Case 7, 8 'UPC-E?
+                'convert from UPCE
+                s = UPCEtoUPCA(Mid(bc, 1, 7))
+                s = s &amp; CheckDigit(BarcodeType.SYMB_UPCA, s)
+
+            Case 13, 14 '+2
+                s = Mid(bc, 1, 11) &amp; CheckDigit(BarcodeType.SYMB_UPCA, Mid(bc, 1, 11))
+                suppl = AddOn(Mid(bc, (Len(bc) - 1)))
+            Case 16, 17 '+5
+                s = Mid(bc, 1, 11) &amp; CheckDigit(BarcodeType.SYMB_UPCA, Mid(bc, 1, 11))
+                suppl = AddOn(Mid(bc, (Len(bc) - 4)))
+            Case Else
+                'Error
+                GoTo err
+        End Select
+
+        Dim tempStr As String
+        Dim i As Integer 'counter
+
+        'Side digit, number only
+        tempStr = GetChar(digitsOnly, Mid(s, 1, 1))
+
+        '5 spaces
+        tempStr = tempStr &amp; FIVE_SPACES
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'First digit, charset A, long bar
+        tempStr = tempStr &amp; GetChar(charsetALong, Mid(s, 1, 1))
+
+        'Digits 2 - 6, using charset A
+        For i = 2 To 6
+            tempStr = tempStr &amp; GetChar(charsetA, Mid(s, i, 1))
+        Next
+
+        'space, dbl bar, space
+        tempStr = tempStr &amp; SPACE &amp; bar &amp; SPACE
+
+        'Digits 7-11, using charset C
+        For i = 7 To 11
+            tempStr = tempStr &amp; GetChar(charsetC, Mid(s, i, 1))
+        Next
+        'Check digit, charset C,long bar
+        tempStr = tempStr &amp; GetChar(charsetCLong, Mid(s, 12, 1))
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        '5 spaces
+        tempStr = tempStr &amp; THREE_SPACES
+
+        'Side digit, number only
+        tempStr = tempStr &amp; GetChar(digitsOnly, Mid(s, 12, 1))
+
+        'Add the +2 or +5 supplement
+        If Len(suppl) &gt; 0 Then
+            tempStr = tempStr &amp; THREE_SPACES &amp; suppl
+        End If
+
+        BCW_UPCA = tempStr
+        Exit Function
+err:
+        BCW_UPCA = ""
+    End Function
+
+    'EAN 13 uses character set A and B on the left side and C on the right
+    Public Shared Function BCW_EAN13(ByVal bc As String, Optional ByVal bTrimSpaces As Boolean = True) As String
+        On Error GoTo err
+
+        If bTrimSpaces Then bc = Trim(bc)
+
+        Dim s, suppl As String
+
+        Select Case Len(bc)
+            Case 12, 13
+                'Add or replace check digit if necessary
+                s = Mid(bc, 1, 12) &amp; CheckDigit(BarcodeType.SYMB_EAN13, Mid(bc, 1, 12))
+                suppl = ""
+            Case 14, 15 '+2
+                s = Mid(bc, 1, 12) &amp; CheckDigit(BarcodeType.SYMB_EAN13, Mid(bc, 1, 12))
+                suppl = AddOn(Mid(bc, (Len(bc) - 1)))
+            Case 17, 18 '+5
+                s = Mid(bc, 1, 12) &amp; CheckDigit(BarcodeType.SYMB_EAN13, Mid(bc, 1, 12))
+                suppl = AddOn(Mid(bc, (Len(bc) - 4)))
+            Case Else
+                'Error
+                GoTo err
+        End Select
+
+        Dim tempStr As String
+        Dim i As Integer 'counter
+
+        'Side digit, number only
+        tempStr = GetChar(digitsOnly, Mid(s, 1, 1))
+
+        '5 spaces
+        tempStr = tempStr &amp; FIVE_SPACES
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'Digits 1 - 6, using charset A and B
+        Dim countryFlag As Integer
+        countryFlag = CInt(Mid(s, 1, 1)) 'first digit of the barcode
+
+        For i = 1 To 6
+            '   If Mid(parity, i, 1) = "A" Then
+            If GetParity(BarcodeType.SYMB_EAN13, i, countryFlag) = "A" Then
+                tempStr = tempStr &amp; GetChar(charsetA, Mid(s, i + 1, 1))
+            Else 'parity B
+                tempStr = tempStr &amp; GetChar(charsetB, Mid(s, i + 1, 1))
+            End If
+        Next
+
+        'space, dbl bar, space
+        tempStr = tempStr &amp; SPACE &amp; bar &amp; SPACE
+
+        'Digits 8-13, using charset C
+        For i = 8 To 13
+            tempStr = tempStr &amp; GetChar(charsetC, Mid(s, i, 1))
+        Next
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'Add the +2 or +5 supplement
+        If Len(suppl) &gt; 0 Then
+            tempStr = tempStr &amp; SEVEN_SPACES &amp; suppl
+        End If
+
+        BCW_EAN13 = tempStr
+        Exit Function
+err:
+        BCW_EAN13 = ""
+    End Function
+
+    'UPCE uses character set A and B
+    Public Shared Function BCW_UPCE(ByVal bc As String, Optional ByVal bTrimSpaces As Boolean = True) As String
+        On Error GoTo err
+
+        If bTrimSpaces Then bc = Trim(bc)
+
+        Dim s As String = ""
+        Dim suppl As String = ""
+
+        Select Case Len(bc)
+            Case 6
+                'add zero and calculate check digit
+                s = "0" &amp; bc &amp; CheckDigit(BarcodeType.SYMB_UPCE, bc)
+            Case 7, 8
+                'if first digit = zero then find check digit
+                If Mid(bc, 1, 1) = "0" Then
+                    s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_UPCE, Mid(bc, 1, 7))
+                Else
+                    GoTo err 'Error, first digit must be zero
+                End If
+            Case 9, 10 '+2
+                If Mid(bc, 1, 1) = "0" Then
+                    s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_UPCE, Mid(bc, 1, 7))
+                Else
+                    GoTo err 'Error, first digit must be zero
+                End If
+                suppl = AddOn(Mid(bc, (Len(bc) - 1)))
+            Case 12, 13 '+5
+                If Mid(bc, 1, 1) = "0" Then
+                    s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_UPCE, Mid(bc, 1, 7))
+                Else
+                    GoTo err 'Error, first digit must be zero
+                End If
+                suppl = AddOn(Mid(bc, (Len(bc) - 4)))
+            Case Else
+                'Error
+                GoTo err
+        End Select
+
+        Dim tempStr As String
+        Dim i As Integer 'counter
+
+        'Side digit, number only, always zero
+        tempStr = GetChar(digitsOnly, Mid(s, 1, 1))
+
+        '5 spaces
+        tempStr = tempStr &amp; FIVE_SPACES
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'Digits 2 - 7, using charset A and B
+        Dim cd As Integer
+        cd = CInt(Mid(s, 8, 1)) 'check digit
+
+        For i = 1 To 6
+            If GetParity(BarcodeType.SYMB_UPCE, i, cd) = "A" Then
+                tempStr = tempStr &amp; GetChar(charsetA, Mid(s, i + 1, 1))
+            Else 'parity B
+                tempStr = tempStr &amp; GetChar(charsetB, Mid(s, i + 1, 1))
+            End If
+        Next
+
+        'space and triple bar
+        tempStr = tempStr &amp; SPACE &amp; TRIPLE_BAR
+
+        '5 spaces
+        tempStr = tempStr &amp; FIVE_SPACES
+
+        'Side digit, number only
+        tempStr = tempStr &amp; GetChar(digitsOnly, Mid(s, 8, 1))
+
+        'Add the +2 or +5 supplement
+        If Len(suppl) &gt; 0 Then
+            tempStr = tempStr &amp; THREE_SPACES &amp; suppl
+        End If
+
+        BCW_UPCE = tempStr
+        Exit Function
+err:
+        BCW_UPCE = ""
+    End Function
+
+    'EAN 8 uses character set A on the left side and C on the right
+    Public Shared Function BCW_EAN8(ByVal bc As String, Optional ByVal bTrimSpaces As Boolean = True) As String
+        On Error GoTo err
+
+        If bTrimSpaces Then bc = Trim(bc)
+
+        Dim s As String = ""
+        Dim suppl As String = ""
+
+        Select Case Len(bc)
+            Case 7, 8
+                s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_EAN8, Mid(bc, 1, 7))
+            Case 9, 10 '+2
+                s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_EAN8, Mid(bc, 1, 7))
+                suppl = AddOn(Mid(bc, (Len(bc) - 1)))
+            Case 12, 13 '+5
+                s = Mid(bc, 1, 7) &amp; CheckDigit(BarcodeType.SYMB_EAN8, Mid(bc, 1, 7))
+                suppl = AddOn(Mid(bc, (Len(bc) - 4)))
+            Case Else
+                GoTo err
+        End Select
+
+        Dim tempStr As String = ""
+        Dim i As Integer 'counter
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'Digits 1 - 4, using charset A
+        For i = 1 To 4
+            tempStr = tempStr &amp; GetChar(charsetA, Mid(s, i, 1))
+        Next
+
+        'space, dbl bar, space
+        tempStr = tempStr &amp; SPACE &amp; bar &amp; SPACE
+
+        'Digits 5-8, using charset C
+        For i = 5 To 8
+            tempStr = tempStr &amp; GetChar(charsetC, Mid(s, i, 1))
+        Next
+
+        'dbl bar
+        tempStr = tempStr &amp; bar
+
+        'Add the +2 or +5 supplement
+        If Len(suppl) &gt; 0 Then
+            tempStr = tempStr &amp; FIVE_SPACES &amp; SPACE &amp; SPACE &amp; suppl
+        End If
+
+        BCW_EAN8 = tempStr
+        Exit Function
+err:
+        BCW_EAN8 = ""
+    End Function
+
+    Public Shared Function UPCEtoUPCA(ByVal s As String) As String
+        ' This function requires a 7 digit UPC-E number (first digit must be zero)
+        ' and returns an 11-digit UPC-A without the check digit
+
+        '   1. First, we take the last digit of UPC-E (not the check digit)
+        '   2. If it's 1,2, or 3, then take the first 2 digits (zero does not count)
+        '      , take the last digit, add four zeros, and add digits 3,4,5
+
+        '   3. If it ends in 3, then take first three digits, add five zeros, add
+        '       character 4, 5
+        '   4. If ends in 4, take first 4 digits, add 5 zeros, then add the 5th digit.
+        '   5. If ends in 5,6,7,8, or 9: take first 5 digits, add 4 zeros, add
+        '      last char from code.
+
+        Dim numberingSystem As String
+        numberingSystem = "0"
+
+        Select Case Len(s)
+            Case 8, 7
+                'ok
+            Case 6
+                'add a leading zero
+                s = "0" &amp; s
+            Case Else
+                'error
+        End Select
+
+        Dim lastDigit As Integer
+        lastDigit = CInt(Mid(s, 7, 1))
+
+
+        Dim output As String = ""
+
+        If (lastDigit &gt;= 0 And lastDigit &lt;= 2) Then
+            output = numberingSystem &amp; _
+                Mid(s, 2, 2) &amp; _
+                lastDigit &amp; _
+                "0000" &amp; _
+                Mid(s, 4, 3)
+
+        ElseIf lastDigit = 3 Then
+            output = numberingSystem &amp; _
+                Mid(s, 2, 3) &amp; _
+                "00000" &amp; _
+                Mid(s, 5, 2)
+
+        ElseIf lastDigit = 4 Then
+            output = numberingSystem &amp; _
+                Mid(s, 2, 4) &amp; _
+                "00000" &amp; _
+                Mid(s, 6, 1)
+
+        ElseIf (lastDigit &gt;= 5 And lastDigit &lt;= 9) Then
+            output = numberingSystem &amp; _
+                Mid(s, 2, 5) &amp; _
+                "0000" &amp; _
+                Mid(s, 7, 1)
+
+        Else
+            'error, impossible
+        End If
+
+        UPCEtoUPCA = output
+    End Function
+
+    '+2 or +5 supplement for UPC and EAN. bc must be 2 or 5 digits
+    Public Shared Function AddOn(ByVal bc As String) As String
+        On Error GoTo err
+
+        Dim par As String
+        Dim parSection As String
+        Dim tot As Integer
+        Select Case Len(bc)
+            Case 2
+                par = "AA" &amp; "AB" &amp; "BA" &amp; "BB"
+
+                tot = CInt(bc) Mod 4
+                parSection = Mid(par, tot * 2 + 1, 2)
+
+            Case 5
+                par = "BBAAA" &amp; "BABAA" &amp; "BAABA" &amp; "BAAAB" &amp; "ABBAA" &amp; _
+                    "AABBA" &amp; "AAABB" &amp; "ABABA" &amp; "ABAAB" &amp; "AABAB"
+                tot = 0
+                Dim i, multiplier As Integer
+                For i = 1 To 5
+                    multiplier = 3
+                    If i Mod 2 = 0 Then multiplier = 9
+                    tot = tot + multiplier * CInt(Mid(bc, i, 1))
+                Next
+                Dim posit As Integer
+                posit = (tot Mod 10) * 5 + 1
+                parSection = Mid(par, posit, 5)
+
+            Case Else
+                GoTo err
+        End Select
+
+        'Now, build the string
+        Dim tempStr As String
+
+        tempStr = LEFT_GUARD
+
+        'First digit
+        tempStr = tempStr
+        Dim counter As Integer
+        Dim sectLength As Integer
+        sectLength = Len(parSection)
+        For counter = 1 To sectLength
+            If Mid(parSection, counter, 1) = "A" Then
+                tempStr = tempStr &amp; GetChar(charsetASupp, Mid(bc, counter, 1))
+            Else
+                tempStr = tempStr &amp; GetChar(charsetBSupp, Mid(bc, counter, 1))
+            End If
+
+            If counter &lt; sectLength Then
+                tempStr = tempStr &amp; SEPARATOR
+            End If
+
+        Next counter
+
+        AddOn = tempStr
+        Exit Function
+err:
+        AddOn = ""
+    End Function
+
+    Public Shared Function EAN13ToISBN(ByVal c As String) As String
+        If Len(c) &lt;&gt; 13 Or Not IsNumeric(c) Then
+            EAN13ToISBN = ""
+            Exit Function
+        End If
+
+
+        Dim isbn As String
+        isbn = Mid(c, 4, 9)
+
+        Dim i As Integer
+        Dim total As Long
+        For i = 1 To 9
+            total = total + i * CInt(Mid(isbn, i, 1))
+        Next i
+
+        Dim cd As Long
+        cd = total Mod 11
+
+        If cd = 10 Then
+            EAN13ToISBN = isbn &amp; "X"
+        Else
+            EAN13ToISBN = isbn &amp; cd
+        End If
+    End Function
+
+    Public Shared Function CheckDigit(symbology As BarcodeType, ByVal c As String) As String
+        'Number of digits without the check digit
+        Dim numDigits As Integer
+        Select Case symbology
+            Case BarcodeType.SYMB_UPCA
+                numDigits = 11
+            Case BarcodeType.SYMB_UPCE
+                'In order to calculate the check digit for UPC-E,
+                'we must convert it first to UPC-A and calculate it
+                c = UPCEtoUPCA(c)
+                numDigits = 11 'First digit is always zero
+            Case BarcodeType.SYMB_EAN13
+                numDigits = 12
+            Case BarcodeType.SYMB_EAN8
+                numDigits = 7
+        End Select
+
+        Dim i As Integer
+        Dim total As Long
+        For i = 1 To numDigits
+            If (numDigits + 1 - i) Mod 2 = 0 Then 'even digit position
+                total = total + 1 * CInt(Mid(c, i, 1))
+            Else 'odd digit position
+                total = total + 3 * CInt(Mid(c, i, 1))
+            End If
+        Next i
+
+        Dim cd As Long
+        cd = 10 - total Mod 10
+        If cd = 10 Then cd = 0
+
+        CheckDigit = CStr(cd)
+    End Function
+
+    Private Shared Function GetParity(symbology As BarcodeType, position As Integer, codeVal As Integer) As String
+        'position may not be &gt; 6
+
+        'Each line corresponds to the first country flag value,
+        'starting with zero (AAAAAA)
+        Dim par As String
+        Select Case symbology
+            Case BarcodeType.SYMB_EAN13
+                par = "AAAAAA" _
+                    &amp; "AABABB" _
+                    &amp; "AABBAB" _
+                    &amp; "AABBBA" _
+                    &amp; "ABAABB" _
+                    &amp; "ABBAAB" _
+                    &amp; "ABBBAA" _
+                    &amp; "ABABAB" _
+                    &amp; "ABABBA" _
+                    &amp; "ABBABA"
+            Case BarcodeType.SYMB_UPCE
+                par = "BBBAAA" _
+                    &amp; "BBABAA" _
+                    &amp; "BBAABA" _
+                    &amp; "BBAAAB" _
+                    &amp; "BABBAA" _
+                    &amp; "BAABBA" _
+                    &amp; "BAAABB" _
+                    &amp; "BABABA" _
+                    &amp; "BABAAB" _
+                    &amp; "BAABAB"
+            Case Else
+                'Error
+                GetParity = ""
+                Exit Function
+        End Select
+
+        Dim parity As String 'to hold the 6-digit parity (ie. AAABBB)
+        parity = Mid(par, codeVal * 6 + 1, 6)
+
+        'Returns either "A" or "B"
+        GetParity = Mid(parity, position, 1)
+    End Function
+
+    'valid pos is 0 through 9
+    Private Shared Function GetChar(c As String, digit As String) As String
+        GetChar = Mid(c, CInt(digit) + 1, 1)
+    End Function
+
+Public Function ean13(chaine)
+  'Cette fonction est regie par la Licence Generale Publique Amoindrie GNU (GNU LGPL)
+  'This function is governed by the GNU Lesser General Public License (GNU LGPL)
+  'V 1.1.1
+  'Parametres : une chaine de 12 chiffres
+  'Parameters : a 12 digits length string
+  'Retour : * une chaine qui, affichee avec la police EAN13.TTF, donne le code barre
+  '         * une chaine vide si parametre fourni incorrect
+  'Return : * a string which give the bar code when it is dispayed with EAN13.TTF font
+  '         * an empty string if the supplied parameter is no good
+  Dim i, checksum, first As Integer, CodeBarre As String, tableA As Boolean
+  ean13 = ""
+  'Verifier qu'il y a 12 caracteres
+  'Check for 12 characters
+  If Len(chaine) &gt;= 12 Then
+    'Et que ce sont bien des chiffres
+    'And they are really digits
+    For i = 1 To 12
+      If Asc(Mid(chaine, i, 1)) &lt; 48 Or Asc(Mid(chaine, i, 1)) &gt; 57 Then
+        i = 0
+        Exit For
+      End If
+    Next
+    If i = 13 Then
+      'Calcul de la cle de controle
+      'Calculation of the checksum
+      For i = 12 To 1 Step -2
+        checksum = checksum + Val(Mid(chaine, i, 1))
+      Next
+      checksum = checksum% * 3
+      For i = 11 To 1 Step -2
+        checksum = checksum + Val(Mid(chaine, i, 1))
+      Next
+      chaine = chaine &amp; (10 - checksum Mod 10) Mod 10
+      'Le premier chiffre est pris tel quel, le deuxieme vient de la table A
+      'The first digit is taken just as it is, the second one come from table A
+      CodeBarre = Left(chaine, 1) &amp; Chr(65 + Val(Mid(chaine, 2, 1)))
+      first = Val(Left(chaine, 1))
+      For i = 3 To 7
+        tableA = False
+         Select Case i
+         Case 3
+           Select Case first
+           Case 0 To 3
+             tableA = True
+           End Select
+         Case 4
+           Select Case first
+           Case 0, 4, 7, 8
+             tableA = True
+           End Select
+         Case 5
+           Select Case first
+           Case 0, 1, 4, 5, 9
+             tableA = True
+           End Select
+         Case 6
+           Select Case first
+           Case 0, 2, 5, 6, 7
+             tableA = True
+           End Select
+         Case 7
+           Select Case first
+           Case 0, 3, 6, 8, 9
+             tableA = True
+           End Select
+         End Select
+       If tableA Then
+         CodeBarre = CodeBarre &amp; Chr(65 + Val(Mid(chaine, i, 1)))
+       Else
+         CodeBarre = CodeBarre &amp; Chr(75 + Val(Mid(chaine, i, 1)))
+       End If
+     Next
+      CodeBarre = CodeBarre &amp; "*"   'Ajout separateur central / Add middle separator
+      For i = 8 To 13
+        CodeBarre = CodeBarre &amp; Chr(97 + Val(Mid(chaine, i, 1)))
+      Next
+      CodeBarre = CodeBarre &amp; "+"   'Ajout de la marque de fin / Add end mark
+      ean13 = CodeBarre
+    End If
+  End If
+End Function</Code>
+  <CodeModules>
+    <CodeModule>System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</CodeModule>
+  </CodeModules>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b8e0777e-7be2-4104-abdf-bae5db77d401</rd:ReportID>
+</Report>
