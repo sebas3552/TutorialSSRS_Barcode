@@ -21,3 +21,7 @@ To run this solution locally, follow this steps:
 5. Set the Tutorial project as startup project.
 6. Adjust the connection string for the Production data source.
 7. Run the project.
+
+TADAA! That's what you should get!
+
+![report](https://user-images.githubusercontent.com/38670360/132440761-9efd21c2-0baa-4760-a1b3-83f3f4b43e9a.png)
